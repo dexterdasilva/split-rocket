@@ -1,0 +1,1 @@
+import Link from "next/link"; export default function NotFound(){return <main className="min-h-screen grid place-items-center p-6"><div className="text-center"><p className="display">404</p><h1 className="text-2xl font-black mt-8">This experiment found no page.</h1><Link className="button mt-8" href="/en">Back home</Link></div></main>}
