@@ -17,7 +17,7 @@ export function Header({ locale }: { locale: Locale }) {
         <Link href={`/${locale}/services/cro`}>{l.services}</Link><Link href={`/${locale}/case-studies`}>{l.cases}</Link><Link href={`/${locale}/insights`}>{l.insights}</Link><Link href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link>
       </nav>
       <Link href={`/${locale}`} className="brand-wordmark" aria-label="Split Rocket home">SPLIT ROCKET</Link>
-      <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link><TrackedLink href={`/${locale}/contact`} className="nav-cta">{locale === "en" ? "Get consultation" : "Solicitar consulta"}</TrackedLink></div>
+      <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link></div>
     </div>
   </header>;
 }
