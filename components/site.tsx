@@ -8,10 +8,11 @@ import { labels } from "@/lib/i18n";
 
 export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
   const other = locale === "en" ? "es" : "en";
   const switched = pathname.replace(/^\/(en|es)/, `/${other}`);
   const l = labels[locale];
-  return <header className="site-header">
+  return <header className={`site-header${isHome ? " is-overlay" : ""}`}>
     <div className="nav-glass">
       <nav className="nav-links" aria-label="Main navigation">
         <Link href={`/${locale}/services/cro`}>{l.services}</Link><Link href={`/${locale}/case-studies`}>{l.cases}</Link><Link href={`/${locale}/insights`}>{l.insights}</Link><Link href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link>
