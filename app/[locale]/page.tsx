@@ -6,7 +6,7 @@ import { localizedMetadata } from "@/lib/metadata";
 import { TrackedLink } from "@/components/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale:string }> }) { const { locale } = await params; if (!isLocale(locale)) return {}; const c=siteCopy[locale]; return localizedMetadata(locale,"",c.hero.title,c.hero.body); }
-const clientNames = ["Bésame Cosmetics", "Bushbalm", "Spice Tribe", "GRAYL", "resbiotic", "Clocks + Colours", "VITALY", "MICHI", "Cienfuegos", "Voncelle"];
+const clientNames = ["Bésame Cosmetics", "Bushbalm", "Spice Tribe", "GRAYL", "resbiotic", "Clocks + Colours", "VITALY", "Etah Love", "MICHI", "Cienfuegos", "Voncelle"];
 export default async function Home({ params }: { params:Promise<{locale:string}> }) {
   const { locale }=await params; if(!isLocale(locale)) notFound(); const c=siteCopy[locale], l=labels[locale];
   return <>
