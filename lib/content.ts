@@ -4,7 +4,7 @@ export type ServiceKey = "cro" | "lifecycle-marketing" | "paid-media";
 
 const copy = {
   en: {
-    hero: { eyebrow: "CONVERSION RATE OPTIMIZATION FOR SHOPIFY BRANDS", title: "Do You Want to Increase Your Conversion Rate?", body: "We’ve helped Shopify brands generate $20M+ in annual revenue through data-driven conversion optimization.", cta: "Increase My Conversion Rate", note: "Best suited to stores with 50,000+ monthly sessions." },
+    hero: { title: "Do You Want to Increase Your Conversion Rate?", body: "We’ve helped Shopify brands generate $20M+ in annual revenue through data-driven conversion optimization.", cta: "Increase My Conversion Rate" },
     proof: "Senior-led strategy. Measurable experiments. No black-box retainers.",
     servicesTitle: "The right lever for your stage",
     processTitle: "A system for compounding growth",
@@ -14,7 +14,7 @@ const copy = {
     finalBody: "Tell us where growth is stuck. We’ll recommend CRO, lifecycle, or paid media—and explain why.",
   },
   es: {
-    hero: { eyebrow: "OPTIMIZACIÓN DE CONVERSIÓN PARA MARCAS EN SHOPIFY", title: "¿Quieres aumentar tu tasa de conversión?", body: "Hemos ayudado a marcas en Shopify a generar más de $20 millones en ingresos anuales mediante optimización de conversión basada en datos.", cta: "Aumentar mi tasa de conversión", note: "Ideal para tiendas con más de 50.000 sesiones mensuales." },
+    hero: { title: "¿Quieres aumentar tu tasa de conversión?", body: "Hemos ayudado a marcas en Shopify a generar más de $20 millones en ingresos anuales mediante optimización de conversión basada en datos.", cta: "Aumentar mi tasa de conversión" },
     proof: "Estrategia liderada por expertos. Experimentos medibles. Sin cajas negras.",
     servicesTitle: "La palanca correcta para tu etapa",
     processTitle: "Un sistema para crecer de forma acumulativa",
