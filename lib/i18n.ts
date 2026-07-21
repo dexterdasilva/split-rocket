@@ -5,6 +5,6 @@ export const isLocale = (value: string): value is Locale => locales.includes(val
 export const pathFor = (locale: Locale, path = "") => `/${locale}${path}`;
 
 export const labels = {
-  en: { services: "Services", cases: "Case studies", insights: "Resources", contact: "Book a strategy call", read: "Read the story" },
-  es: { services: "Servicios", cases: "Casos de éxito", insights: "Recursos", contact: "Agenda una llamada", read: "Ver el caso" },
+  en: { services: "Services", cases: "Case studies", insights: "Resources", news: "News", contact: "Book a strategy call", read: "Read the story" },
+  es: { services: "Servicios", cases: "Casos de éxito", insights: "Recursos", news: "Noticias", contact: "Agenda una llamada", read: "Ver el caso" },
 } as const;
