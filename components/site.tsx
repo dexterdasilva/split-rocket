@@ -6,6 +6,7 @@ import { track } from "@vercel/analytics";
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/i18n";
 import { labels } from "@/lib/i18n";
+import { serviceGroups, services } from "@/lib/content";
 
 export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
@@ -17,10 +18,11 @@ export function Header({ locale }: { locale: Locale }) {
   const other = locale === "en" ? "es" : "en";
   const switched = pathname.replace(/^\/(en|es)/, `/${other}`);
   const l = labels[locale];
+  const catalog = services[locale];
   return <header className={`site-header is-overlay${scrolled ? " is-scrolled" : ""}`}>
     <div className="nav-glass">
       <nav id="main-navigation" className={`nav-links${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
-        <Link onClick={() => setMenuOpen(false)} href={`/${locale}/services/cro`}>{l.services}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/case-studies`}>{l.cases}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/insights`}>{l.insights}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link><Link onClick={() => setMenuOpen(false)} href={switched} hrefLang={other} className="mobile-language">{locale === "en" ? "Español" : "English"}</Link>
+        <div className="service-menu"><Link className="service-trigger" onClick={() => setMenuOpen(false)} href={`/${locale}/services/cro`}>{l.services}<span aria-hidden="true">⌄</span></Link><div className="mega-menu"><div className="mega-heading"><p className="eyebrow">{locale === "en" ? "What we do" : "Qué hacemos"}</p><strong>{locale === "en" ? "One growth system. Five ways in." : "Un sistema de crecimiento. Cinco formas de entrar."}</strong></div>{serviceGroups[locale].map((group,index)=><div className="mega-group" key={group.key}><p><span>0{index+1}</span>{group.label}</p><small>{group.description}</small><div>{group.slugs.map((slug)=>{const service=catalog.find((item)=>item.slug===slug);return service?<Link onClick={()=>setMenuOpen(false)} href={`/${locale}/services/${slug}`} key={slug}>{service.name}<span>↗</span></Link>:null})}</div></div>)}</div></div><Link onClick={() => setMenuOpen(false)} href={`/${locale}/case-studies`}>{l.cases}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/insights`}>{l.insights}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link><Link onClick={() => setMenuOpen(false)} href={switched} hrefLang={other} className="mobile-language">{locale === "en" ? "Español" : "English"}</Link>
       </nav>
       <Link href={`/${locale}`} className="brand-wordmark" aria-label="Split Rocket home">SPLIT ROCKET</Link>
       <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link><button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" aria-label={menuOpen ? "Close navigation" : "Open navigation"} onClick={() => setMenuOpen((open) => !open)}><span/><span/><span/></button></div>
