@@ -11,13 +11,13 @@ export function Header({ locale }: { locale: Locale }) {
   const other = locale === "en" ? "es" : "en";
   const switched = pathname.replace(/^\/(en|es)/, `/${other}`);
   const l = labels[locale];
-  return <header className="border-b border-black/20 bg-[#f4f1e9]/95 sticky top-0 z-50 backdrop-blur">
-    <div className="wrap h-20 flex items-center justify-between gap-5">
-      <Link href={`/${locale}`} className="font-black text-xl tracking-[-.06em]" aria-label="Split Rocket home">SPLIT/ROCKET</Link>
-      <nav className="hidden md:flex items-center gap-7 text-sm font-bold" aria-label="Main navigation">
-        <Link href={`/${locale}/services/cro`}>{l.services}</Link><Link href={`/${locale}/case-studies`}>{l.cases}</Link><Link href={`/${locale}/insights`}>{l.insights}</Link>
+  return <header className="site-header">
+    <div className="nav-glass">
+      <nav className="nav-links" aria-label="Main navigation">
+        <Link href={`/${locale}/services/cro`}>{l.services}</Link><Link href={`/${locale}/case-studies`}>{l.cases}</Link><Link href={`/${locale}/insights`}>{l.insights}</Link><Link href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link>
       </nav>
-      <div className="flex items-center gap-3"><Link href={switched} hrefLang={other} className="text-xs font-black uppercase border border-black px-2 py-1">{other}</Link><TrackedLink href={`/${locale}/contact`} className="button !min-h-10 !px-4 text-sm">{l.contact}</TrackedLink></div>
+      <Link href={`/${locale}`} className="brand-wordmark" aria-label="Split Rocket home">SPLIT ROCKET</Link>
+      <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link><TrackedLink href={`/${locale}/contact`} className="nav-cta">{locale === "en" ? "Get consultation" : "Solicitar consulta"}</TrackedLink></div>
     </div>
   </header>;
 }
