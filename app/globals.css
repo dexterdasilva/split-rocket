@@ -34,7 +34,7 @@ button,input,select,textarea { font:inherit; }
 .nav-links a,.language-link { position:relative; }
 .nav-links a::after { content:""; position:absolute; left:0; right:100%; bottom:-7px; height:2px; background:white; transition:right .2s ease; }
 .nav-links a:hover::after { right:0; }
-.brand-wordmark { font-family:"SF Pro Display","Arial Narrow",Arial,sans-serif; font-size:1.65rem; font-weight:950; letter-spacing:-.075em; transform:scaleX(.88); white-space:nowrap; }
+.brand-wordmark { font-family:var(--font-brand),Impact,"Arial Narrow",sans-serif; font-size:1.7rem; font-weight:400; line-height:1; letter-spacing:-.025em; white-space:nowrap; }
 .nav-actions { display:flex; justify-content:flex-end; align-items:center; gap:1rem; }
 .language-link { font-size:.72rem; font-weight:900; text-transform:uppercase; letter-spacing:.1em; }
 .nav-cta { min-height:52px; padding:0 1.8rem; display:inline-flex; align-items:center; justify-content:center; background:var(--blue); color:white; font-size:.9rem; font-weight:800; transition:background .2s ease,color .2s ease,transform .2s ease; }
@@ -48,5 +48,5 @@ button,input,select,textarea { font:inherit; }
 .field input,.field select,.field textarea { width:100%; border:1px solid var(--ink); background:white; padding:.85rem; border-radius:0; }
 .field input:focus,.field select:focus,.field textarea:focus { outline:3px solid var(--acid); outline-offset:1px; }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .logo-marquee { overflow-x:auto; mask-image:none; } .logo-group[aria-hidden="true"] { display:none; } }
-@media (max-width:900px) { .nav-glass { min-height:72px; padding:12px 22px; grid-template-columns:1fr auto; } .nav-links { display:none; } .brand-wordmark { justify-self:start; font-size:1.4rem; transform-origin:left center; } .nav-actions { gap:.7rem; } .nav-cta { min-height:42px; padding:0 1rem; font-size:.75rem; } }
+@media (max-width:900px) { .nav-glass { min-height:72px; padding:12px 22px; grid-template-columns:1fr auto; } .nav-links { display:none; } .brand-wordmark { justify-self:start; font-size:1.45rem; } .nav-actions { gap:.7rem; } .nav-cta { min-height:42px; padding:0 1rem; font-size:.75rem; } }
 @media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } .site-header { padding:8px 8px 0; } .nav-glass { padding:10px 14px; } .language-link { display:none; } }
