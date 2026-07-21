@@ -12,9 +12,10 @@ export function Header({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   useEffect(() => { const update = () => setScrolled(window.scrollY > 80); update(); window.addEventListener("scroll", update, { passive: true }); return () => window.removeEventListener("scroll", update); }, []);
-  useEffect(() => setMenuOpen(false), [pathname]);
-  useEffect(() => { if (!menuOpen) return; const close = (event: KeyboardEvent) => { if (event.key === "Escape") setMenuOpen(false); }; window.addEventListener("keydown", close); return () => window.removeEventListener("keydown", close); }, [menuOpen]);
+  useEffect(() => { setMenuOpen(false); setServicesOpen(false); }, [pathname]);
+  useEffect(() => { if (!menuOpen && !servicesOpen) return; const close = (event: KeyboardEvent) => { if (event.key === "Escape") { setMenuOpen(false); setServicesOpen(false); } }; window.addEventListener("keydown", close); return () => window.removeEventListener("keydown", close); }, [menuOpen, servicesOpen]);
   const other = locale === "en" ? "es" : "en";
   const switched = pathname.replace(/^\/(en|es)/, `/${other}`);
   const l = labels[locale];
@@ -22,10 +23,34 @@ export function Header({ locale }: { locale: Locale }) {
   return <header className={`site-header is-overlay${scrolled ? " is-scrolled" : ""}`}>
     <div className="nav-glass">
       <nav id="main-navigation" className={`nav-links${menuOpen ? " is-open" : ""}`} aria-label="Main navigation">
-        <div className="service-menu"><Link className="service-trigger" onClick={() => setMenuOpen(false)} href={`/${locale}/services/cro`}>{l.services}<span aria-hidden="true">⌄</span></Link><div className="mega-menu"><div className="mega-heading"><p className="eyebrow">{locale === "en" ? "What we do" : "Qué hacemos"}</p><strong>{locale === "en" ? "One growth system. Five ways in." : "Un sistema de crecimiento. Cinco formas de entrar."}</strong></div>{serviceGroups[locale].map((group,index)=><div className="mega-group" key={group.key}><p><span>0{index+1}</span>{group.label}</p><small>{group.description}</small><div>{group.slugs.map((slug)=>{const service=catalog.find((item)=>item.slug===slug);return service?<Link onClick={()=>setMenuOpen(false)} href={`/${locale}/services/${slug}`} key={slug}>{service.name}<span>↗</span></Link>:null})}</div></div>)}</div></div><Link onClick={() => setMenuOpen(false)} href={`/${locale}/case-studies`}>{l.cases}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/insights`}>{l.insights}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link><Link onClick={() => setMenuOpen(false)} href={switched} hrefLang={other} className="mobile-language">{locale === "en" ? "Español" : "English"}</Link>
+        <div className={`service-menu${servicesOpen ? " is-open" : ""}`}>
+          <button className="service-trigger" type="button" aria-expanded={servicesOpen} onClick={() => setServicesOpen((open) => !open)}>
+            {l.services}<span aria-hidden="true">⌄</span>
+          </button>
+          <div className="mega-menu">
+            <div className="mega-intro">
+              <p className="eyebrow">{locale === "en" ? "What we do" : "Qué hacemos"}</p>
+              <strong>{locale === "en" ? "One team for the entire e-commerce growth system." : "Un equipo para todo el sistema de crecimiento e-commerce."}</strong>
+              <p>{locale === "en" ? "Start with the lever creating the biggest constraint. We’ll connect the rest when it matters." : "Empieza por la palanca que más limita el crecimiento. Conectaremos las demás cuando sea necesario."}</p>
+              <Link onClick={() => { setMenuOpen(false); setServicesOpen(false); }} href={`/${locale}/contact`}>
+                {locale === "en" ? "Find your growth lever" : "Encuentra tu palanca de crecimiento"}<span aria-hidden="true">↗</span>
+              </Link>
+            </div>
+            <div className="mega-grid">
+              {serviceGroups[locale].map((group) => <section className="mega-group" key={group.key}>
+                <p>{group.label}</p>
+                <div>{group.slugs.map((slug) => {
+                  const service = catalog.find((item) => item.slug === slug);
+                  return service ? <Link onClick={() => { setMenuOpen(false); setServicesOpen(false); }} href={`/${locale}/services/${slug}`} key={slug}>{service.name}<span aria-hidden="true">↗</span></Link> : null;
+                })}</div>
+              </section>)}
+            </div>
+          </div>
+        </div>
+        <Link onClick={() => setMenuOpen(false)} href={`/${locale}/case-studies`}>{l.cases}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/insights`}>{l.insights}</Link><Link onClick={() => setMenuOpen(false)} href={`/${locale}/about`}>{locale === "en" ? "About" : "Nosotros"}</Link><Link onClick={() => setMenuOpen(false)} href={switched} hrefLang={other} className="mobile-language">{locale === "en" ? "Español" : "English"}</Link>
       </nav>
       <Link href={`/${locale}`} className="brand-wordmark" aria-label="Split Rocket home">SPLIT ROCKET</Link>
-      <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link><button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" aria-label={menuOpen ? "Close navigation" : "Open navigation"} onClick={() => setMenuOpen((open) => !open)}><span/><span/><span/></button></div>
+      <div className="nav-actions"><Link href={switched} hrefLang={other} className="language-link">{other}</Link><button className="menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="main-navigation" aria-label={menuOpen ? "Close navigation" : "Open navigation"} onClick={() => { setMenuOpen((open) => !open); setServicesOpen(false); }}><span/><span/><span/></button></div>
     </div>
   </header>;
 }
