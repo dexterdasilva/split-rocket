@@ -21,8 +21,6 @@ button,input,select,textarea { font:inherit; }
 .logo-track { display:flex; width:max-content; animation:logo-scroll 32s linear infinite; }
 .logo-group { display:flex; align-items:center; gap:clamp(3rem,6vw,6.5rem); padding-right:clamp(3rem,6vw,6.5rem); }
 .client-wordmark { display:block; white-space:nowrap; color:#242520; font-size:clamp(1.05rem,1.8vw,1.55rem); font-weight:800; letter-spacing:-.04em; opacity:.72; }
-.client-wordmark:nth-child(3n) { letter-spacing:.06em; text-transform:uppercase; }
-.client-wordmark:nth-child(4n) { font-weight:500; letter-spacing:.01em; }
 @keyframes logo-scroll { to { transform:translateX(-50%); } }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 1.25rem; border:1px solid var(--ink); background:var(--ink); color:white; font-weight:700; transition:.2s ease; }
 .button:hover { background:var(--blue); border-color:var(--blue); transform:translateY(-2px); }
