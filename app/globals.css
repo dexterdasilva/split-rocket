@@ -10,7 +10,7 @@ button,input,select,textarea { font:inherit; }
 .eyebrow { font-size:.72rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 .display { font-size:clamp(3.4rem, 8.5vw, 8rem); line-height:.85; letter-spacing:-.075em; font-weight:800; }
 .headline { font-size:clamp(2.4rem, 5vw, 5rem); line-height:.95; letter-spacing:-.055em; font-weight:800; }
-.hero-simple { position:relative; isolation:isolate; min-height:620px; display:flex; align-items:center; padding:7rem 0; overflow:hidden; color:white; background:linear-gradient(135deg,#7a344c 0%,#3b1827 48%,#17111d 76%,#253da7 140%); }
+.hero-simple { position:relative; isolation:isolate; min-height:clamp(720px,86svh,900px); display:flex; align-items:center; padding:8rem 0; overflow:hidden; color:white; background:linear-gradient(135deg,#7a344c 0%,#3b1827 48%,#17111d 76%,#253da7 140%); }
 .hero-simple::after { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(circle at 72% 24%,rgba(255,255,255,.1),transparent 30%),linear-gradient(180deg,rgba(12,8,12,.06),rgba(12,8,12,.2)); }
 .hero-content { position:relative; z-index:1; }
 .hero-title { font-size:70px; line-height:.98; letter-spacing:-.055em; font-weight:900; text-transform:uppercase; }
@@ -52,4 +52,4 @@ button,input,select,textarea { font:inherit; }
 .field input:focus,.field select:focus,.field textarea:focus { outline:3px solid var(--acid); outline-offset:1px; }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .logo-marquee { overflow-x:auto; mask-image:none; } .logo-group[aria-hidden="true"] { display:none; } }
 @media (max-width:900px) { .nav-glass { min-height:72px; padding:12px 22px; grid-template-columns:1fr auto; } .nav-links { display:none; } .brand-wordmark { justify-self:start; font-size:1.45rem; } .nav-actions { gap:.7rem; } }
-@media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } .hero-title { font-size:clamp(1.4rem,7.2vw,3.15rem); letter-spacing:-.045em; } .site-header { padding:8px 8px 0; } .nav-glass { padding:10px 14px; } .site-header.is-scrolled .nav-glass { min-height:54px; padding:8px 14px; } .language-link { display:none; } }
+@media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } .hero-simple { min-height:680px; padding:7rem 0; } .hero-title { font-size:clamp(1.4rem,7.2vw,3.15rem); letter-spacing:-.045em; } .site-header { padding:8px 8px 0; } .nav-glass { padding:10px 14px; } .site-header.is-scrolled .nav-glass { min-height:54px; padding:8px 14px; } .language-link { display:none; } }
