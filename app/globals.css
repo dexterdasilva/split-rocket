@@ -11,7 +11,8 @@ button,input,select,textarea { font:inherit; }
 .display { font-size:clamp(3.4rem, 8.5vw, 8rem); line-height:.85; letter-spacing:-.075em; font-weight:800; }
 .headline { font-size:clamp(2.4rem, 5vw, 5rem); line-height:.95; letter-spacing:-.055em; font-weight:800; }
 .hero-simple { min-height:620px; display:flex; align-items:center; padding:7rem 0; background:#f7f7f5; }
-.hero-title { font-size:clamp(3rem,5vw,5.35rem); line-height:.98; letter-spacing:-.055em; font-weight:900; text-transform:uppercase; text-wrap:balance; }
+.hero-title { font-size:70px; line-height:.98; letter-spacing:-.055em; font-weight:900; text-transform:uppercase; }
+.hero-title span { display:block; white-space:nowrap; }
 .hero-copy { font-size:clamp(1.2rem,2vw,1.7rem); line-height:1.35; text-wrap:balance; }
 .button.hero-button { min-width:min(100%,380px); min-height:58px; border-radius:999px; background:var(--blue); border-color:var(--blue); color:white; text-transform:uppercase; letter-spacing:.02em; }
 .button.hero-button:hover { background:var(--acid); border-color:var(--ink); color:var(--ink); }
@@ -45,4 +46,4 @@ button,input,select,textarea { font:inherit; }
 .field input:focus,.field select:focus,.field textarea:focus { outline:3px solid var(--acid); outline-offset:1px; }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .logo-marquee { overflow-x:auto; mask-image:none; } .logo-group[aria-hidden="true"] { display:none; } }
 @media (max-width:900px) { .nav-glass { min-height:72px; padding:12px 22px; grid-template-columns:1fr auto; } .nav-links { display:none; } .brand-wordmark { justify-self:start; font-size:1.45rem; } .nav-actions { gap:.7rem; } }
-@media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } .site-header { padding:8px 8px 0; } .nav-glass { padding:10px 14px; } .language-link { display:none; } }
+@media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } .hero-title { font-size:clamp(1.4rem,7.2vw,3.15rem); letter-spacing:-.045em; } .site-header { padding:8px 8px 0; } .nav-glass { padding:10px 14px; } .language-link { display:none; } }
