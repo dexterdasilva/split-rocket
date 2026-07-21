@@ -15,6 +15,15 @@ button,input,select,textarea { font:inherit; }
 .hero-copy { font-size:clamp(1.2rem,2vw,1.7rem); line-height:1.35; text-wrap:balance; }
 .hero-button { min-width:min(100%,380px); min-height:58px; border-radius:999px; background:var(--blue); border-color:var(--blue); text-transform:uppercase; letter-spacing:.02em; }
 .hero-button:hover { background:var(--ink); border-color:var(--ink); }
+.logo-cloud { padding:2.1rem 0 2.4rem; overflow:hidden; background:white; border-bottom:1px solid var(--ink); }
+.logo-cloud-label { text-align:center; margin-bottom:1.7rem; opacity:.5; }
+.logo-marquee { display:flex; overflow:hidden; mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); }
+.logo-track { display:flex; width:max-content; animation:logo-scroll 32s linear infinite; }
+.logo-group { display:flex; align-items:center; gap:clamp(3rem,6vw,6.5rem); padding-right:clamp(3rem,6vw,6.5rem); }
+.client-wordmark { display:block; white-space:nowrap; color:#242520; font-size:clamp(1.05rem,1.8vw,1.55rem); font-weight:800; letter-spacing:-.04em; opacity:.72; }
+.client-wordmark:nth-child(3n) { letter-spacing:.06em; text-transform:uppercase; }
+.client-wordmark:nth-child(4n) { font-weight:500; letter-spacing:.01em; }
+@keyframes logo-scroll { to { transform:translateX(-50%); } }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 1.25rem; border:1px solid var(--ink); background:var(--ink); color:white; font-weight:700; transition:.2s ease; }
 .button:hover { background:var(--blue); border-color:var(--blue); transform:translateY(-2px); }
 .button.light { background:var(--acid); color:var(--ink); }
@@ -29,5 +38,5 @@ button,input,select,textarea { font:inherit; }
 .field label { font-size:.78rem; text-transform:uppercase; font-weight:800; letter-spacing:.08em; }
 .field input,.field select,.field textarea { width:100%; border:1px solid var(--ink); background:white; padding:.85rem; border-radius:0; }
 .field input:focus,.field select:focus,.field textarea:focus { outline:3px solid var(--acid); outline-offset:1px; }
-@media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } }
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .logo-marquee { overflow-x:auto; mask-image:none; } .logo-group[aria-hidden="true"] { display:none; } }
 @media (max-width:700px) { .wrap { width:min(100% - 24px,1180px); } .display { font-size:3.5rem; } }
