@@ -10,6 +10,11 @@ button,input,select,textarea { font:inherit; }
 .eyebrow { font-size:.72rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 .display { font-size:clamp(3.4rem, 8.5vw, 8rem); line-height:.85; letter-spacing:-.075em; font-weight:800; }
 .headline { font-size:clamp(2.4rem, 5vw, 5rem); line-height:.95; letter-spacing:-.055em; font-weight:800; }
+.hero-simple { min-height:620px; display:flex; align-items:center; padding:7rem 0; background:#f7f7f5; }
+.hero-title { font-size:clamp(3rem,5.6vw,5.75rem); line-height:.98; letter-spacing:-.055em; font-weight:900; text-transform:uppercase; text-wrap:balance; }
+.hero-copy { font-size:clamp(1.2rem,2vw,1.7rem); line-height:1.35; text-wrap:balance; }
+.hero-button { min-width:min(100%,380px); min-height:58px; border-radius:999px; background:var(--blue); border-color:var(--blue); text-transform:uppercase; letter-spacing:.02em; }
+.hero-button:hover { background:var(--ink); border-color:var(--ink); }
 .button { display:inline-flex; align-items:center; justify-content:center; min-height:52px; padding:0 1.25rem; border:1px solid var(--ink); background:var(--ink); color:white; font-weight:700; transition:.2s ease; }
 .button:hover { background:var(--blue); border-color:var(--blue); transform:translateY(-2px); }
 .button.light { background:var(--acid); color:var(--ink); }
